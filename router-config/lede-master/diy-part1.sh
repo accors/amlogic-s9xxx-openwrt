@@ -17,6 +17,4 @@
 # rm -rf package/lean/{samba4,luci-app-samba4,luci-app-ttyd}
 
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
-echo "src-git kenzo https://github.com/kenzok8/openwrt-packages" >> "feeds.conf.default"
-echo "src-git small https://github.com/kenzok8/small" >> "feeds.conf.default"
-echo "src-git opentopd  https://github.com/sirpdboy/sirpdboy-package" >> "feeds.conf.default"
+
