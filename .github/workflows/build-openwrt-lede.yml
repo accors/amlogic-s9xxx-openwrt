@@ -16,7 +16,7 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  FEEDS_CONF: router-config/lede-master/feeds.conf.default
+  FEEDS_CONF: router-config/lede-master/feeds.conf
   CONFIG_FILE: router-config/lede-master/arm-vplus.config
   DIY_P1_SH: router-config/lede-master/diy-part1.sh
   DIY_P2_SH: router-config/lede-master/diy-part2.sh
@@ -74,11 +74,11 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
-    - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a -f
+    - name: Update feeds and Install feeds
+      run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a -f
 
-    - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a -f
+    #- name: Install feeds
+      #run: cd openwrt && ./scripts/feeds install -a -f
 
     - name: Load custom configuration
       run: |
